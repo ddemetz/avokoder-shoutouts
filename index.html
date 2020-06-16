@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Shoutout Matcher</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+<style>
+
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: #f9ded7;
+}
+
+h1, h2, h3, input{
+  color: green;
+  font-family: 'Balsamiq Sans', cursive;
+  margin: 0;
+}
+
+p{
+  color: white;
+  font-family: 'Balsamiq Sans', cursive;
+  margin: 0;
+  font-size: 20px;
+  padding: 1em;
+}
+
+
+div{text-align: center;
+margin-top: 3em;}
+
+#secret{
+  width: 60%;
+  text-align: center;
+  margin: auto;
+  background-color: Transparent;
+  border-radius: 5px;
+  color: white;
+}
+
+
+img{
+  width: 100px;
+  margin-top: 10vh;
+}
+
+input{
+  margin: 2em 0 0 0;
+}
+
+input[type=submit]{
+  background-color: #f39298;
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+  color: white;
+  margin-bottom: 3em;
+  font-size: 25px;
+  padding: 10px 20px;
+}
+
+input[type=text]{
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+  width:50%;
+  color: #f39298;
+  font-size: 25px;
+}
+
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+h1{
+  font-size: 55px;
+  margin-bottom: 30px;
+}
+
+h3{
+  font-size: 45px;
+    margin-bottom: 40px;
+}
+input[type=text]{
+  font-size: 50px;
+  height: 3em;
+  width: 75%;
+  margin: .5em;
+  border-radius: 10px;
+  color: #f39298;
+}
+
+input[type=submit]{
+  font-size: 50px;
+  height: 3em;
+  width: 75%;
+    margin: .5em;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+input {
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+}
+
+img{
+  width: 50vw;
+}
+
+p{
+  font-size: 60px;
+  padding: 40px 30px
+}
+
+#secret{
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  background-color: Transparent;
+  border-radius: 10px;
+  color: white;
+
+}
+
+
+  }
+
+
+</style>
+
+
+  </head>
+  <body>
+
+    <div>
+
+<a href = "" class = "avo"><img src="assets/giphy.gif"/></a>
+
+<h1> Find out who your daily shoutout is!<h1/>
+  <h3>Enter your name:</h3>
+
+<form>
+<input id="name" type="text"><br>
+<input type="submit" value="Find your shoutout!">
+</form>
+<div id=secret>
+
+<p id="empty"></p>
+</div>
+    </div>
+
+<script>
+
+$(document).ready(function(){
+
+function noSubmit(event){
+  event.preventDefault();
+}
+
+
+$("input[type='submit']").click(function(sub){
+sub.preventDefault();
+
+var name=document.getElementById('name').value;
+
+// console.log (name);
+
+var secret = document.getElementById('secret');
+
+name=name.toLowerCase().trim();
+
+// console.log (name);
+
+
+
+var names = [
+  "emily",
+  "leia",
+  "ashley",
+  "shreya",
+  "maile",
+  "cady",
+  "jamie",
+  "elyse",
+  "yurie",
+  "maya",
+  "aishiki",
+  "ameera",
+  "reem",
+  "sarah",
+  "nira",
+  "selena",
+  "elena",
+  "yuliana",
+  "jenny",
+  "marinka",
+  "julia",
+  "saafiyah",
+  "phoenix",
+  "roselyn",
+  "alondra",
+  "lucy",
+  "riley",
+  "abby",
+  "caroline",
+  "madi",
+  "dominique"
+];
+
+var partner = [
+  "emily",
+  "leia",
+  "ashley",
+  "shreya",
+  "maile",
+  "cady",
+  "jamie",
+  "elyse",
+  "yurie",
+  "maya",
+  "aishiki",
+  "ameera",
+  "reem",
+  "sarah",
+  "nira",
+  "selena",
+  "elena",
+  "yuliana",
+  "jenny",
+  "marinka",
+  "julia",
+  "saafiyah",
+  "phoenix",
+  "roselyn",
+  "alondra",
+  "lucy",
+  "riley",
+  "abby",
+  "caroline",
+  "madi",
+  "dominique",
+  "emily",
+  "leia",
+  "ashley",
+  "shreya",
+  "maile",
+  "cady",
+  "jamie",
+  "elyse",
+  "yurie",
+  "maya",
+  "aishiki",
+  "ameera",
+  "reem",
+  "sarah",
+  "nira",
+  "selena",
+  "elena",
+  "yuliana",
+  "jenny",
+  "marinka",
+  "julia",
+  "saafiyah",
+  "phoenix",
+  "roselyn",
+  "alondra",
+  "lucy",
+  "riley",
+  "abby",
+  "caroline",
+  "madi",
+  "dominique"
+];
+
+
+var box=document.getElementById('empty');
+
+var a = new Date();
+
+
+var day = a.getDate();
+
+day = day - 14;
+
+console.log (day);
+
+if (names.includes(name)==false || name == ""){
+box.innerHTML="hmm... something's not right!";
+}
+
+else{
+  var match = names.indexOf(name);
+  match = match + 31 - day;
+
+  var partnerOfTheDay = partner[match];
+
+
+secret.style.backgroundColor = "#f6aeb0";
+
+box.innerHTML=`${name}! your shoutout today is ${partnerOfTheDay}!`;
+}
+
+
+
+});
+
+});
+
+
+
+
+</script>
+
+
+  </body>
+</html>
