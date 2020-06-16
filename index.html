@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<!-- Made by Dominique Demetz ddemetz.com -->
+<!-- Made by Dominique Demetz ddemetz.com also the best IA ever not to be biased-->
+<!-- EDIT lines 183 & 186 to apply to your camp dates + scholars-->
 
 <html>
   <head>
@@ -28,7 +29,6 @@ p{
   padding: 10px;
 }
 
-
 div{text-align: center;
 margin-top: 3em;}
 
@@ -41,7 +41,6 @@ margin-top: 3em;}
   color: white;
 }
 
-
 img{
   width: 100px;
   margin-top: 10vh;
@@ -52,7 +51,7 @@ input{
 }
 
 input[type=submit]{
-  background-color: #D7C0D0;
+  background-color: #a4d648;
   border: none;
   border-radius: 3px;
   padding: 10px;
@@ -63,7 +62,7 @@ input[type=submit]{
 }
 
 input[type=submit]:hover{
-  background-color: #C7A8BE;
+  background-color: #8ab43d;
 }
 
 input[type=text]{
@@ -72,12 +71,12 @@ input[type=text]{
   border-radius: 3px;
   text-align: center;
   width:50%;
-  color: #D7C0D0;
+  color: #a4d648;
   font-size: 20px;
 }
 
 ::placeholder{
-  color: #DFCDDA;
+  color: #cbf184;
 }
 
 @media only screen
@@ -140,7 +139,6 @@ p{
   border-radius: 10px;
   color: white;
 }
-
   }
 
 </style>
@@ -174,20 +172,17 @@ function noSubmit(event){
   event.preventDefault();
 }
 
-
 $("input[type='submit']").click(function(sub){
 sub.preventDefault();
 
 var name=document.getElementById('name').value;
-
-
 var secret = document.getElementById('secret');
-
 name=name.toLowerCase().trim();
 
+//change to your camp's start date
+var startDate = 14;
 
 //replace with your own camp's scholars
-
 var scholars = [
   "emily",
   "leia",
@@ -222,28 +217,27 @@ var scholars = [
   "dominique"
 ];
 
-//replace with your own camp's scholars x2 so when you subtract it doesn't go into a negative index
-
 var partner = [];
 
 partner.push.apply(partner, scholars);
 partner.push.apply(partner, scholars);
 
-
-
 var box=document.getElementById('empty');
 
 var a = new Date();
-
-
+console.log (a);
 var day = a.getDate();
+var month = a.getMonth();
+month = month + 1;
 
+day = day - startDate;
 
-// (not sure if this equation is universal it just works with the portland camp)
-
-day = day - 14;
-
-console.log (day);
+if (day < 0 && month == 5 || month == 7 || month == 8){
+day = 31 + day;
+}
+else if (day < 0){
+  day = 30 + day;
+}
 
 if (scholars.includes(name)==false || name == ""){
 box.innerHTML="hmm... something's not right!";
@@ -255,25 +249,13 @@ else{
 
   var scholarPartner = partner[match];
 
-
-secret.style.backgroundColor = "#D7C0D0";
-
-
-
+secret.style.backgroundColor = "#a4d648";
 box.innerHTML=`${name}! your shoutout today is ${scholarPartner}!`;
 }
 
-
-
 });
-
 });
-
-
-
 
 </script>
-
-
   </body>
 </html>
