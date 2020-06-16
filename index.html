@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!-- Made by Dominique Demetz ddemetz.com -->
 
 <html>
   <head>
@@ -8,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
      <link rel="icon" href="assets/avo.jpg">
-<style>
 
+<style>
 body{
   overflow-x: hidden;
   overflow-y: hidden;
@@ -23,11 +24,8 @@ h1, h2, h3, input{
 }
 
 p{
-  color: #2F4B26;
-  font-family: 'Balsamiq Sans', cursive;
-  margin: 0;
   font-size: 20px;
-  padding: 1em;
+  padding: 10px;
 }
 
 
@@ -60,7 +58,7 @@ input[type=submit]{
   padding: 10px;
   color: white;
   margin-bottom: 1em;
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px 20px;
 }
 
@@ -75,14 +73,13 @@ input[type=text]{
   text-align: center;
   width:50%;
   color: #D7C0D0;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 ::placeholder{
   color: #DFCDDA;
 }
 
-/* mobile might not be 100% correct */
 @media only screen
   and (min-device-width: 320px)
   and (max-device-width: 480px)
@@ -94,22 +91,26 @@ h1{
   margin-bottom: 30px;
 }
 
+body{
+  width: 90%;
+  margin: auto;
+}
+
 h3{
   font-size: 45px;
     margin-bottom: 40px;
 }
 input[type=text]{
   font-size: 50px;
-  height: 3em;
+  height: 2em;
   width: 75%;
   margin: .5em;
   border-radius: 10px;
-  color: #f39298;
 }
 
 input[type=submit]{
   font-size: 50px;
-  height: 3em;
+  height: 2em;
   width: 75%;
     margin: .5em;
     border-radius: 10px;
@@ -138,7 +139,6 @@ p{
   background-color: Transparent;
   border-radius: 10px;
   color: white;
-
 }
 
   }
@@ -159,10 +159,11 @@ p{
 <input id="name" type="text" placeholder="name">
 <input type="submit" value=">">
 </form>
-<div id=secret>
 
+<div id=secret>
 <p id="empty"></p>
 </div>
+
     </div>
 
 <script>
@@ -223,70 +224,10 @@ var scholars = [
 
 //replace with your own camp's scholars x2 so when you subtract it doesn't go into a negative index
 
-var partner = [
-  "emily",
-  "leia",
-  "ashley",
-  "shreya",
-  "maile",
-  "cady",
-  "jamie",
-  "elyse",
-  "yurie",
-  "maya",
-  "aishiki",
-  "ameera",
-  "reem",
-  "sarah",
-  "nira",
-  "selena",
-  "elena",
-  "yuliana",
-  "jenny",
-  "marinka",
-  "julia",
-  "saafiyah",
-  "phoenix",
-  "roselyn",
-  "alondra",
-  "lucy",
-  "riley",
-  "abby",
-  "caroline",
-  "madi",
-  "dominique",
-  "emily",
-  "leia",
-  "ashley",
-  "shreya",
-  "maile",
-  "cady",
-  "jamie",
-  "elyse",
-  "yurie",
-  "maya",
-  "aishiki",
-  "ameera",
-  "reem",
-  "sarah",
-  "nira",
-  "selena",
-  "elena",
-  "yuliana",
-  "jenny",
-  "marinka",
-  "julia",
-  "saafiyah",
-  "phoenix",
-  "roselyn",
-  "alondra",
-  "lucy",
-  "riley",
-  "abby",
-  "caroline",
-  "madi",
-  "dominique"
-];
+var partner = [];
+
+partner.push.apply(partner, scholars);
+partner.push.apply(partner, scholars);
 
 
 
